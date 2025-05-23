@@ -1,0 +1,148 @@
+/* footer divider with sliiight tilt */
+.footer-divider {
+  position: relative;
+  height: var(--footer-divider-height);
+  overflow: hidden;
+  margin-top: 2rem;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+.footer-divider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom right,
+    transparent 49.5%,
+    var(--footer-color) 50%
+  );
+  z-index: 2;
+}
+
+.footer-divider::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  z-index: 3;
+  opacity: 0.7;
+}
+
+.divider-glow {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 40px;
+  background: radial-gradient(
+    ellipse at center,
+    var(--glow-color) 0%,
+    transparent 70%
+  );
+  filter: blur(10px);
+  z-index: 1;
+}
+
+/* actual footer */
+footer {
+  background-color: var(--footer-color);
+  padding: 4rem 0 2rem;
+  color: var(--light-text);
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+.footer-content-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  margin-bottom: 2rem;
+  align-items: start;
+}
+
+.footer-title-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: start;
+}
+
+.footer-title-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(
+    to right,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  border: none;
+  padding: 0;
+  margin-top: 0;
+  line-height: 1.2;
+}
+
+.footer-meta {
+  color: var(--light-text);
+}
+
+.footer-meta p {
+  margin-bottom: 0.5rem;
+}
+
+.footer-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.footer-section h3 {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  margin-top: 0.6rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section li,
+.footer-section p {
+  margin-bottom: 0.5rem;
+  font-weight: 300;
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(6, 182, 212, 0.2);
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
