@@ -1,10 +1,984 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
-    <title>Ingeniería de Software</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arkanoid Evolution - Especificación de Requisitos de Software</title>
+
+    <!-- css styles -->
+    <link rel="stylesheet" href="styles/variables.css" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/navigation.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/animations.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
+
+    <!-- font (could change?) -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    />
   </head>
   <body>
-    <p>Hello world!</p>
+    <!-- header -->
+    <header>
+      <div class="header-animation">
+        <!-- animated grid lines -->
+        <div class="grid-line" style="top: 20%"></div>
+        <div class="grid-line" style="top: 40%"></div>
+        <div class="grid-line" style="top: 60%"></div>
+        <div class="grid-line" style="top: 80%"></div>
+
+        <div class="grid-line-vertical" style="left: 20%"></div>
+        <div class="grid-line-vertical" style="left: 40%"></div>
+        <div class="grid-line-vertical" style="left: 60%"></div>
+        <div class="grid-line-vertical" style="left: 80%"></div>
+
+        <!-- spooky ghost floating particles woo -->
+        <div
+          class="particle"
+          style="top: 20%; left: 15%; --move-x: 100px; --move-y: 50px"
+        ></div>
+        <div
+          class="particle"
+          style="top: 70%; left: 80%; --move-x: -120px; --move-y: -60px"
+        ></div>
+        <div
+          class="particle"
+          style="top: 40%; left: 30%; --move-x: 80px; --move-y: -40px"
+        ></div>
+        <div
+          class="particle"
+          style="top: 60%; left: 60%; --move-x: -90px; --move-y: 70px"
+        ></div>
+        <div
+          class="particle"
+          style="top: 30%; left: 70%; --move-x: -70px; --move-y: -50px"
+        ></div>
+        <div
+          class="particle"
+          style="top: 80%; left: 40%; --move-x: 110px; --move-y: -30px"
+        ></div>
+        <div
+          class="particle"
+          style="top: 25%; left: 50%; --move-x: -60px; --move-y: 80px"
+        ></div>
+        <div
+          class="particle"
+          style="top: 65%; left: 25%; --move-x: 70px; --move-y: 60px"
+        ></div>
+
+        <!-- glowwww -->
+        <div class="header-glow glow-1"></div>
+        <div class="header-glow glow-2"></div>
+      </div>
+
+      <!-- arkev title -->
+      <div class="header-content">
+        <div class="container">
+          <h1>Arkanoid Evolution (ArkEv)</h1>
+          <p class="subtitle">Especificación de Requisitos de Software</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- nav bar!! -->
+    <nav>
+      <div class="nav-container">
+        <ul>
+          <li><a href="#introduccion">Introducción</a></li>
+          <li><a href="#descripcion-general">Descripción General</a></li>
+          <li><a href="#requisitos-especificos">Requisitos Específicos</a></li>
+          <li><a href="#conclusiones">Conclusiones</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ...and finally, the actual info YAY -->
+
+    <main class="container">
+      <section id="introduccion" class="section">
+        <h2>1. Introducción</h2>
+        <p>
+          La especificación de Requisitos de Software (ERS) para
+          <span class="highlight-alt">Arkanoid Evolution</span> (ArkEv)
+          establece de manera estructurada los requisitos funcionales y no
+          funcionales que guiarán el desarrollo del videojuego arcade, cuyo
+          objetivo es ofrecer una experiencia modernizada del clásico Arkanoid.
+        </p>
+
+        <div class="subsection">
+          <h3>1.1 Propósito</h3>
+          <p>
+            El propósito de este documento es especificar de forma clara y
+            detallada los requisitos funcionales y no funcionales del videojuego
+            Arkanoid Evolution (ArkEv). Está diseñado para guiar a los equipos
+            de desarrollo, diseño, pruebas, así como al Product Owner (PO),
+            Project Manager (PM) y al cliente, durante todo el ciclo de vida del
+            software. Este documento busca establecer una base de entendimiento
+            común que garantice el desarrollo correcto del videojuego,
+            cumpliendo las expectativas de calidad, experiencia de usuario y
+            rendimiento.
+          </p>
+        </div>
+
+        <div class="subsection">
+          <h3>1.2 Ámbito del sistema</h3>
+          <p>
+            <span class="highlight-alt">Arkanoid Evolution</span> (ArkEv) es un
+            videojuego inspirado en el clásico Arkanoid, en el que el usuario
+            controla una plataforma para hacer rebotar una bola con el objetivo
+            de romper bloques dispuestos en distintos patrones. El sistema
+            incluirá una estructura de niveles progresiva, un sistema de
+            puntuación, variedad de
+            <span class="highlight-alt">power ups</span>, efectos visuales
+            modernos, sonidos envolventes, y una banda sonora retro. ArkEv será
+            una aplicación de escritorio ejecutable localmente, sin modos de
+            juego multijugador ni conectividad permanente, pero incluirá una
+            funcionalidad en línea opcional para el registro y consulta de
+            rankings y puntuaciones. Este sistema de ranking permitirá a los
+            jugadores comparar su progreso y logros con los de otros jugadores a
+            través de una conexión puntual con el servidor de rankings.
+          </p>
+          <p>
+            Se espera que ArkEv ofrezca una experiencia nostálgica pero
+            renovada, atrayendo tanto a jugadores veteranos como a nuevas
+            generaciones, gracias a una jugabilidad sencilla, mecánicas clásicas
+            y un entorno audiovisual atractivo.
+          </p>
+        </div>
+
+        <div class="subsection">
+          <h3>1.3 Definiciones, acrónimos y abreviaturas</h3>
+          <ul class="definitions-list">
+            <li>
+              <strong>Arkanoid:</strong> Estilo de juego en el que el jugador
+              destruye bloques con una pelota que rebota.
+            </li>
+            <li><strong>PM:</strong> Project Manager.</li>
+            <li><strong>PO:</strong> Product Owner.</li>
+            <li>
+              <strong>Power Up:</strong> Elemento especial que otorga
+              habilidades o ventajas temporales al jugador.
+            </li>
+            <li>
+              <strong>FPS:</strong> Frames Per Second (fotogramas por segundo).
+            </li>
+            <li><strong>IA:</strong> Inteligencia Artificial.</li>
+            <li>
+              <strong>Ranking en línea:</strong> Sistema remoto que permite
+              registrar y consultar puntuaciones de jugadores.
+            </li>
+            <li>
+              <strong>Skin:</strong> Componente que permite modificar (decorar)
+              el aspecto del juego o sus componentes.
+            </li>
+          </ul>
+        </div>
+
+        <div class="subsection">
+          <h3>1.4 Referencias</h3>
+          <ul>
+            <li>
+              IEEE Std 830-1998 – Recomendaciones para la especificación de
+              requisitos de software.
+            </li>
+            <li>Manuales de diseño de videojuegos tipo Arkanoid.</li>
+            <li>
+              Documentación técnica de motores gráficos 2D utilizados para
+              desarrollo multiplataforma.
+            </li>
+          </ul>
+        </div>
+
+        <div class="subsection">
+          <h3>1.5 Visión general del documento</h3>
+          <p>
+            Este documento se divide en cuatro secciones principales, a saber:
+            una introducción que describe el propósito, alcance, definiciones y
+            estructura del documento; una descripción general del sistema, donde
+            se presenta una visión global del producto, sus funciones, usuarios,
+            restricciones y dependencias; un apartado de requisitos específicos,
+            donde se detallan los requerimientos funcionales y no funcionales
+            del sistema y finalmente una sección de conclusiones generales donde
+            se una reflexión sobre la importancia del presente documento y su
+            uso futuro.
+          </p>
+        </div>
+      </section>
+
+      <section id="descripcion-general" class="section">
+        <h2>2. Descripción general</h2>
+
+        <div class="subsection">
+          <h3>2.1 Perspectiva del producto</h3>
+          <p>
+            ArkEv será una
+            <span class="highlight">aplicación de escritorio</span>, ejecutable
+            para computadores personales Windows, Linux y Mac. Funcionará sin
+            necesidad de conexión permanente a internet, utilizará un
+            <span class="highlight-alt">motor gráfico ligero</span> para 2D y
+            podrá recibir entradas desde el teclado. Adicionalmente, incluirá un
+            módulo de conexión temporal al
+            <span class="highlight">servidor de rankings</span> en línea,
+            permitiendo el envío y la visualización de puntuaciones y logros de
+            los jugadores, sin comprometer la jugabilidad básica del juego.
+          </p>
+        </div>
+
+        <div class="subsection">
+          <h3>2.2 Funciones del producto</h3>
+          <div class="functions-grid">
+            <div class="function-card">
+              <h4>Menú principal</h4>
+              <ul>
+                <li>Iniciar juego</li>
+                <li>Ver y editar preferencias visuales y de sonido</li>
+                <li>Ver y editar perfil</li>
+                <li>Consultar las puntuaciones personales</li>
+                <li>Acceder al módulo de ránking global (en línea)</li>
+                <li>Opciones de dificultad de juego</li>
+                <li>Tutorial o modo de ayuda</li>
+                <li>Sistema de power-ups</li>
+                <li>Salir del juego</li>
+              </ul>
+            </div>
+            <div class="function-card">
+              <h4>Gestión de perfil</h4>
+              <ul>
+                <li>
+                  Vista y edición de perfil incluyendo nombre de usuario y
+                  selección de país
+                </li>
+              </ul>
+            </div>
+            <div class="function-card">
+              <h4>Ránking global</h4>
+              <ul>
+                <li>Puesto ocupado</li>
+                <li>Nombre del jugador</li>
+                <li>País</li>
+                <li>Puntaje</li>
+                <li>Sincronización con base de datos cuando hay conexión</li>
+                <li>Opciones de filtrado</li>
+              </ul>
+            </div>
+            <div class="function-card">
+              <h4>Selección de nivel</h4>
+              <ul>
+                <li>Jugar niveles ya superados</li>
+                <li>Continuar con el último nivel desbloqueado</li>
+              </ul>
+            </div>
+            <div class="function-card">
+              <h4>Pantallas de juego</h4>
+              <ul>
+                <li>Pantalla de juego</li>
+                <li>Pantalla de juego en pausa con opciones</li>
+                <li>Pantalla de tutorial o modo de ayuda</li>
+                <li>Opciones de dificultad del juego</li>
+              </ul>
+            </div>
+            <div class="function-card">
+              <h4>Características de juego</h4>
+              <ul>
+                <li>Control de la plataforma mediante las teclas ← y →</li>
+                <li>Rebote de la bola según leyes físicas</li>
+                <li>Eliminación de bloques al ser golpeados</li>
+                <li>Sistema de <span class="highlight-alt">power-ups</span></li>
+                <li>Sistema de puntuación</li>
+                <li>Sistema de conteo de vidas</li>
+                <li>Progresión a través de múltiples niveles</li>
+              </ul>
+            </div>
+            <div class="function-card">
+              <h4>Características adicionales</h4>
+              <ul>
+                <li>Pantallas de victoria y derrota</li>
+                <li>Almacenamiento local del progreso</li>
+                <li>Funcionalidad en línea opcional</li>
+                <li>Efectos sonoros y banda sonora</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>2.3 Características de los usuarios</h3>
+          <p>
+            El público objetivo está compuesto por jugadores casuales y/o
+            <span class="highlight-alt">nostálgicos</span> que desean disfrutar
+            de una experiencia de juego clásica pero renovada, y que tienen a su
+            disposición computadores sin grandes capacidades de procesamiento
+            gráfico. Se espera que puedan usar el teclado. No se requieren
+            habilidades técnicas avanzadas.
+          </p>
+        </div>
+
+        <div class="subsection">
+          <h3>2.4 Restricciones</h3>
+          <ul>
+            <li>
+              ArkEv será desarrollado utilizando el motor
+              <span class="highlight-alt">Unity</span>, ya que este entorno
+              cubre de forma integral las necesidades técnicas y funcionales del
+              proyecto. Entre sus principales ventajas se encuentran el soporte
+              nativo para gráficos 2D, físicas realistas (como colisiones y
+              rebotes), integración de sonido y animaciones, exportación
+              multiplataforma (Windows, Linux, Mac, WebGL), soporte para
+              funcionalidades en línea como rankings mediante APIs, y un
+              conjunto de herramientas visuales que facilitan la colaboración
+              entre desarrolladores y diseñadores.
+            </li>
+            <li>
+              Todas las funcionalidades del sistema, salvo el módulo de ranking
+              global deben poder ejecutarse completamente sin conexión a
+              internet.
+            </li>
+            <li>Solo se incluirá el modo de un jugador.</li>
+            <li>
+              El módulo de ranking en línea no debe interrumpir la jugabilidad
+              si no hay conexión disponible.
+            </li>
+            <li>
+              La funcionalidad del módulo de ranking en línea deberá ser
+              desarrollada mediante la integración de RESTful APIs.
+            </li>
+            <li>
+              El sistema debe estar optimizado para ejecutarse correctamente en
+              equipos de gama media o baja. A continuación se detallan las
+              características mínimas recomendadas del equipo:
+              <ul>
+                <li><b>Procesador:</b> Dual core a 2.0 ghz o equivalente.</li>
+                <li><b>Memoria RAM:</b> 4 GB.</li>
+                <li><b>Almacenamiento: 4</b> GB de espacio libre.</li>
+                <li>
+                  <b>Gráficos:</b> gráficos integrados estándar (sin necesidad
+                  de aceleración 3D).
+                </li>
+                <li><b>DirectX:</b> Versión 11 o superior.</li>
+                <li>
+                  <b>Tarjeta de sonido:</b> Compatible con DirectX 11 o
+                  superior. Se acepta sonido integrado.
+                </li>
+                <li><b>Resolución de pantalla mínima:</b> 800x600 píxeles.</li>
+                <li><b>Sistema operativo:</b> Windows XP o superior.</li>
+                <li>
+                  <b>Conexión a internet:</b> No requerida (solo para funciones
+                  remotas si las hubiera).
+                </li>
+              </ul>
+            </li>
+            <li>
+              La disponibilidad del sistema de ranking debe estar garantizada,
+              asegurando la integridad y seguridad de los datos almacenados.
+            </li>
+            <li>
+              La carga de los datos del jugador debe realizarse de forma rápida
+              y eficiente.
+            </li>
+          </ul>
+        </div>
+
+        <div class="subsection">
+          <h3>2.5 Suposiciones y dependencias</h3>
+          <ul>
+            <li>
+              Se asume que el usuario dispone de un
+              <span class="highlight">teclado funcional</span> para jugar.
+            </li>
+            <li>
+              Se presupone que el usuario cuenta con un computador personal que
+              cumple como mínimo, con las especificaciones técnicas establecidas
+              en la sección de restricciones del sistema.
+            </li>
+            <li>
+              Se requiere que el sistema operativo del usuario sea compatible
+              con la versión del juego distribuida.
+            </li>
+            <li>
+              Se presupone que el servidor encargado de gestionar el ranking
+              global estará disponible de forma permanente, correctamente
+              configurado para aceptar conexiones externas y preparado para
+              manejar de manera escalable la variabilidad en la concurrencia de
+              usuarios.
+            </li>
+          </ul>
+        </div>
+
+        <div class="subsection">
+          <h3>2.6 Requisitos futuros</h3>
+          <p>
+            En futuras versiones, se espera que el sistema sea escalable a
+            <span class="highlight">plataformas web</span> y
+            <span class="highlight">dispositivos móviles</span>, con el objetivo
+            de ampliar su alcance y accesibilidad. Asimismo, se contempla la
+            incorporación de
+            <span class="highlight-alt">modos de juego en línea</span>, como
+            duelos en tiempo real entre jugadores, que enriquecerían la
+            experiencia y fomentarían la competitividad. También se prevé el
+            desarrollo de una <span class="highlight-alt">tienda virtual</span>,
+            donde los usuarios puedan adquirir elementos personalizables, como
+            skins temáticas generales, o específicas para los bloques, los
+            fondos u otros componentes visuales del juego.
+          </p>
+        </div>
+      </section>
+
+      <section id="requisitos-especificos" class="section">
+        <h2>3. Requisitos específicos</h2>
+
+        <div class="subsection">
+          <h3>3.1 Interfaces externas</h3>
+          <ul>
+            <li><strong>Teclado:</strong> entrada del jugador.</li>
+            <li><strong>Pantalla:</strong> renderizado del juego.</li>
+            <li>
+              <strong>API REST:</strong> comunicación con servidor de rankings.
+            </li>
+          </ul>
+        </div>
+
+        <div class="subsection">
+          <h3>3.2 Requerimientos funcionales</h3>
+          <div class="requirements-list">
+            <div class="requirement">
+              <span class="req-id">RF1.</span>
+              <p>
+                El sistema debe permitir
+                <span class="highlight">iniciar y reiniciar</span> el juego.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF2.</span>
+              <p>
+                El sistema debe permitir configurar preferencias de
+                <span class="highlight">accesibilidad</span> y
+                <span class="highlight">sonido</span>, tales como modificación
+                del tamaño de la fuente, activación o desactivación de modo de
+                alto contraste, activación o desactivación de los efectos
+                visuales, subir y bajar volúmen de la música, subir y bajar
+                volúmen de los efectos de sonido.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF3.</span>
+              <p>
+                El sistema debe
+                <span class="highlight">desbloquear niveles</span>
+                automáticamente en función del progreso del jugador.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF4.</span>
+              <p>
+                El sistema debe
+                <span class="highlight">guardar localmente</span> el progreso.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF5.</span>
+              <p>
+                El sistema debe permitir
+                <span class="highlight">seleccionar el nivel</span> a jugar, ya
+                sea el último nivel desbloqueado o cualquier nivel previamente
+                superado.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF6.</span>
+              <p>
+                El sistema debe permitir visualizar y editar la información del
+                <span class="highlight">perfil del usuario</span> (nombre de
+                usuario y país).
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF7.</span>
+              <p>
+                El sistema debe permitir al usuario
+                <span class="highlight">abandonar el juego</span> desde
+                cualquier pantalla principal.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF8.</span>
+              <p>
+                El sistema debe permitir regresar al
+                <span class="highlight">menú principal</span> desde la pantalla
+                del juego.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF9.</span>
+              <p>
+                El jugador debe poder
+                <span class="highlight">mover la plataforma</span> hacia la
+                izquierda y la derecha usando las flechas del teclado.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF10.</span>
+              <p>
+                El sistema debe permitir
+                <span class="highlight">pausar</span> el juego al presionar la
+                tecla Escape.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF11.</span>
+              <p>
+                La bola debe
+                <span class="highlight">desplazarse y rebotar</span> contra
+                superficies (plataforma, paredes, bloques y obstáculos) según
+                leyes físicas básicas.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF12.</span>
+              <p>
+                Los bloques deben <span class="highlight">eliminarse</span> al
+                ser golpeados por la bola.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF13.</span>
+              <p>
+                El sistema debe mostrar la
+                <span class="highlight">animación de destrucción</span> de
+                bloques cuando estos sean golpeados, si los efectos visuales
+                están activados.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF14.</span>
+              <p>
+                Los <span class="highlight">obstáculos</span> deben permanecer
+                intactos al ser chocados con la bola y deberán ser eliminados
+                cuando sean golpeados por power-ups con la propiedad "rompe
+                obstáculos".
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF15.</span>
+              <p>
+                El sistema debe mostrar la animación de destrucción de
+                obstáculos cuando estos sean golpeados por un
+                <span class="highlight">power-up</span>, siempre que los efectos
+                visuales estén activados.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF16.</span>
+              <p>
+                Se debe mostrar el <span class="highlight">puntaje</span> en
+                tiempo real durante la partida.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF17.</span>
+              <div>
+                <p>
+                  El sistema debe
+                  <span class="highlight">calcular el puntaje</span> del nivel
+                  según la siguiente fórmula:
+                </p>
+                <ul>
+                  <li>+10 puntos por cada bloque destruído.</li>
+                  <li>+10 puntos por cada obstáculo no destruido.</li>
+                  <li>-0.3 puntos por cada segundo transcurrido.</li>
+                  <li>-5 puntos por cada vida perdida.</li>
+                  <li>
+                    Total x1 si el nivel de dificultad es máximo, x0.8 si es
+                    moderado y x0.6 si es fácil.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF18.</span>
+              <p>
+                Al destruir todos los bloques, se debe
+                <span class="highlight">avanzar al jugador</span> al siguiente
+                nivel.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF19.</span>
+              <p>
+                El sistema debe mostrar
+                <span class="highlight">pantallas de victoria y derrota</span>
+                por pérdida de vidas o por agotamiento del tiempo.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF20.</span>
+              <p>
+                Al perder toda las vidas, se entiende terminado el juego, se
+                muestra la pantalla de
+                <span class="highlight">derrota por vidas</span> y se regresa al
+                usuario a la pantalla de selección de nivel.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF21.</span>
+              <p>
+                Al acabarse el tiempo, se entiende terminado el juego, se
+                muestra la pantalla de
+                <span class="highlight">derrota por tiempo</span> y se regresa
+                al usuario a la pantalla de selección de nivel.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF22.</span>
+              <p>
+                El usuario puede consultar el
+                <span class="highlight">récord de sus puntuaciones</span> (por
+                nivel y de manera general) de manera local.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF23.</span>
+              <p>
+                El usuario puede consultar y filtrar (por nombre y puntaje) el
+                <span class="highlight">ranking global</span> si hay conexión a
+                internet.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF24.</span>
+              <p>
+                El sistema debe <span class="highlight">notificar</span> si no
+                hay conexión al intentar acceder al ranking.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF25.</span>
+              <p>
+                El sistema debe permitir seleccionar el
+                <span class="highlight">nivel de dificultad</span> (fácil,
+                medio, difícil) antes de iniciar una partida.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF26.</span>
+              <p>
+                El sistema debe permitir
+                <span class="highlight">personalizar los controles</span> de
+                movimiento de la plataforma.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF27.</span>
+              <p>
+                El sistema debe mostrar una pantalla de
+                <span class="highlight">tutorial o ayuda</span> que explique la
+                mecánica básica del juego.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF28.</span>
+              <p>
+                El sistema debe mostrar una
+                <span class="highlight">tabla de power-ups</span> que incluya
+                nombre, efecto, duración, condiciones de aparición y estado de
+                desbloqueo.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF29.</span>
+              <p>
+                El sistema debe indicar visualmente qué
+                <span class="highlight">power-ups han sido desbloqueados</span>
+                por el usuario y cuáles aún no.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF30.</span>
+              <p>
+                El sistema debe permitir seleccionar visualmente las
+                <span class="highlight">skins disponibles</span> y desbloqueadas
+                para la plataforma, la bola y los fondos.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF31.</span>
+              <p>
+                El sistema debe reproducir
+                <span class="highlight">efectos de sonidos</span> para todas las
+                interacciones de la bola.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF32.</span>
+              <p>
+                El sistema debe mostrar
+                <span class="highlight">pantallas de transición</span> entre
+                niveles.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF33.</span>
+              <p>
+                El sistema debe permitir al usuario visualizar la
+                <span class="highlight">información de cada nivel</span>
+                (nombre, número, dificultad) antes de jugarlo.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF34.</span>
+              <p>
+                El sistema debe permitir consultar desde el menú principal las
+                <span class="highlight">puntuaciones personales</span>, tanto
+                generales como por nivel.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>3.3 Requisitos no funcionales</h3>
+          <div class="requirements-list">
+            <div class="requirement">
+              <span class="req-id">RNF1.</span>
+              <p>
+                <strong>Rendimiento:</strong> El juego debe ejecutarse a un
+                mínimo de <span class="highlight">30 FPS</span> en equipos con
+                procesador dual-core y 2GB de RAM.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RNF2.</span>
+              <p>
+                <strong>Usabilidad:</strong> La interfaz debe ser
+                <span class="highlight">intuitiva</span>, permitiendo al usuario
+                comenzar a jugar sin instrucciones complejas.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RNF3.</span>
+              <p>
+                <strong>Compatibilidad:</strong> El juego debe poder ejecutarse
+                en <span class="highlight">Windows, Linux y Mac</span>.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RNF4.</span>
+              <p>
+                <strong>Portabilidad:</strong> El sistema debe funcionar como
+                <span class="highlight">archivo ejecutable único</span>.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RNF5.</span>
+              <p>
+                <strong>Seguridad:</strong> No se almacenará
+                <span class="highlight">información personal sensible</span> del
+                usuario.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RNF6.</span>
+              <p>
+                <strong>Mantenibilidad:</strong> El código debe estar
+                <span class="highlight">modularizado</span> y completamente
+                documentado para facilitar su modificación.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RNF7.</span>
+              <p>
+                <strong>Accesibilidad:</strong> Soporte visual para personas con
+                <span class="highlight">visión reducida</span>. Posibilidad de
+                activar modo de alto contraste, modificación del tamaño de la
+                fuente.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RNF8.</span>
+              <p>
+                <strong>Fiabilidad:</strong> El sistema debe mantener un
+                <span class="highlight">funcionamiento estable</span> sin
+                cuelgues ni pérdidas de datos durante sesiones de juego
+                prolongadas.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RNF9.</span>
+              <p>
+                <strong>Recuperación ante errores:</strong> ante errores no
+                críticos, como pérdida de conexión con el servidor del ranking,
+                el sistema debe mostrar un
+                <span class="highlight">mensaje claro</span> y permitir
+                continuar el juego de forma local.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RNF10.</span>
+              <p>
+                <strong>Instalación / Despliegue:</strong> El sistema debe poder
+                instalarse o ejecutarse sin necesidad de configuración adicional
+                por parte del usuario (<span class="highlight"
+                  >plug-and-play</span
+                >).
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RNF11.</span>
+              <p>
+                <strong>Localización:</strong> El juego debe permitir
+                <span class="highlight">soporte multilingüe</span>, empezando
+                con idioma inglés como predeterminado y posibilidad de expansión
+                a otros idiomas.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RNF12.</span>
+              <p>
+                <strong>Escalabilidad del servidor de rankings:</strong> el
+                servidor de rankings debe poder manejar hasta
+                <span class="highlight">500-1000 usuarios concurrentes</span>.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RNF13.</span>
+              <p>
+                <strong>Consumo de recursos:</strong> El sistema no debe
+                utilizar más del <span class="highlight">60% de CPU</span> ni
+                más de <span class="highlight">500 MB de RAM</span> durante el
+                juego en condiciones normales.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RNF14.</span>
+              <p>
+                <strong>Trazabilidad:</strong> Todos los requisitos funcionales
+                deben estar
+                <span class="highlight"
+                  >trazados a funcionalidades específicas</span
+                >
+                del sistema y cubiertos por pruebas.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RNF15.</span>
+              <p>
+                <strong>Actualización:</strong> El sistema debe permitir
+                <span class="highlight"
+                  >actualizaciones manuales o automáticas</span
+                >
+                sin requerir reinstalación completa del juego.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="conclusiones" class="section">
+        <h2>4. Conclusiones y reflexiones</h2>
+        <p>
+          El desarrollo de esta
+          <span class="highlight"
+            >Especificación de Requisitos de Software</span
+          >
+          ha evidenciado la importancia de establecer de forma clara, precisa y
+          estructurada los requerimientos del videojuego
+          <span class="highlight">Arkanoid Evolution</span> (ArkEv), ya que ha
+          permitido construir una visión integral del producto, facilitando la
+          planificación y ejecución del proyecto. Mediante la adopción del
+          modelo <span class="highlight-alt">IEEE 830</span>, se organizaron
+          adecuadamente las funcionalidades del sistema, sus restricciones
+          técnicas y atributos de calidad esperados. Esta estructura garantiza
+          que todos los actores involucrados compartan una comprensión unificada
+          del objetivo del desarrollo, favoreciendo así una mayor eficiencia y
+          alineación en cada una de las etapas del ciclo de vida del software.
+        </p>
+      </section>
+    </main>
+
+    <div class="footer-divider">
+      <div class="divider-glow"></div>
+    </div>
+
+    <!-- footer -->
+
+    <footer>
+      <div class="footer-animation">
+        <!-- animated grid lines footer ver. -->
+        <div class="grid-line" style="top: 20%"></div>
+        <div class="grid-line" style="top: 50%"></div>
+        <div class="grid-line" style="top: 80%"></div>
+
+        <div class="grid-line-vertical" style="left: 25%"></div>
+        <div class="grid-line-vertical" style="left: 50%"></div>
+        <div class="grid-line-vertical" style="left: 75%"></div>
+
+        <!-- not-spooky real and corporeal particles for footer anti-woo -->
+        <div
+          class="footer-particle"
+          style="top: 30%; left: 20%; --move-x: 80px; --move-y: -40px"
+        ></div>
+        <div
+          class="footer-particle"
+          style="top: 70%; left: 60%; --move-x: -60px; --move-y: 50px"
+        ></div>
+        <div
+          class="footer-particle"
+          style="top: 50%; left: 80%; --move-x: -90px; --move-y: -30px"
+        ></div>
+        <div
+          class="footer-particle"
+          style="top: 20%; left: 40%; --move-x: 70px; --move-y: 60px"
+        ></div>
+      </div>
+
+      <div class="footer-content-wrapper">
+        <div class="footer-main">
+          <div class="footer-title-section">
+            <h2>Arkanoid Evolution</h2>
+            <div class="footer-meta">
+              <p>Fecha: Mayo de 2025</p>
+              <p>Versión: 1.0</p>
+              <p>Documento: ERS-001</p>
+            </div>
+          </div>
+
+          <div class="footer-info">
+            <div class="footer-section">
+              <h3>Equipo de Desarrollo</h3>
+              <ul>
+                <li>Sebastián Cruz Cardona</li>
+                <li>Manuela Vélez Betancourt</li>
+                <li>Andrés Rodríguez Perdomo</li>
+                <li>Sophie Rosero Muriel</li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h3>Información del Curso</h3>
+              <p>Profesor: <br />Juan David Montoya</p>
+              <p>Asignatura: <br />Ingeniería de Software</p>
+            </div>
+            <div class="footer-section">
+              <h3>Institución</h3>
+              <p>Institución Educativa EAM</p>
+              <p>Facultad de Ingeniería</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>
+            &copy; 2025 Proyecto Arkanoid Evolution (ArkEv). Todos los derechos
+            reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- js scripts -->
+    <script src="scripts/particles.js"></script>
+    <script src="scripts/navigation.js"></script>
   </body>
 </html>
