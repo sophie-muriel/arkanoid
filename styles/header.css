@@ -1,0 +1,35 @@
+/* header */
+header {
+  background-color: #000000;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-color);
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.header-content {
+  padding: 5rem 0;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+  font-size: 4rem;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+  font-weight: 300;
+  color: var(--light-text);
+}
