@@ -1,0 +1,25 @@
+/* color/config vars */
+:root {
+  --primary-color: #06b6d4;
+  --primary-color-100: #aae2ec;
+  --secondary-color: #d946ef;
+  --accent-color: #8b5cf6;
+  --text-color: #e2e8f0;
+  --light-text: #94a3b8;
+  --background-color: #000000;
+  --card-background: #111111;
+  --border-color: #333333;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --nav-background: #0a0a0a;
+  --footer-color: #0a0a0a;
+  --glow-color: rgba(6, 182, 212, 0.3);
+  --secondary-glow: rgba(217, 70, 239, 0.3);
+
+  /* spacing */
+  --scroll-margin: 90px;
+  --footer-divider-height: 30px;
+
+  /* animations */
+  --transition-speed: 0.3s;
+  --hover-transform: translateY(-2px);
+}
