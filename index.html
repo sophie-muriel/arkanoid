@@ -172,8 +172,37 @@
               registrar y consultar puntuaciones de jugadores.
             </li>
             <li>
-              <strong>Skin:</strong> Componente que permite modificar (decorar)
-              el aspecto del juego o sus componentes.
+              <strong>Skin:</strong> Apariencia visual alternativa que modifica
+              el diseño gráfico de elementos del juego sin afectar su
+              comportamiento ni las mecánicas del mismo.
+            </li>
+            <li>
+              <strong>ERS:</strong> Especificación de Requisitos de Software.
+              Documento que describe en detalle las funcionalidades,
+              restricciones y requerimientos técnicos de un sistema o
+              aplicación, siguiendo un estándar definido como IEEE 830.
+            </li>
+            <li>
+              <strong>IEEE:</strong> Institute of Electrical and Electronics
+              Engineers. Organización internacional que establece estándares
+              técnicos para diversas áreas, incluyendo el desarrollo de
+              software.
+            </li>
+            <li>
+              <strong>IEEE 830:</strong> Estándar para la especificación de
+              requisitos.
+            </li>
+            <li>
+              <strong>Unity:</strong> Motor de desarrollo de videojuegos
+              multiplataforma que permite crear entornos interactivos en 2D y
+              3D.
+            </li>
+            <li>
+              <strong>API/RESTful:</strong> Application Programming Interface /
+              Representational State Transfer. Tipo de interfaz de programación
+              que permite la comunicación entre aplicaciones mediante el
+              protocolo HTTP, facilitando operaciones como el envío y
+              recuperación de datos.
             </li>
           </ul>
         </div>
@@ -182,13 +211,80 @@
           <h3>1.4 Referencias</h3>
           <ul>
             <li>
-              IEEE Std 830-1998 – Recomendaciones para la especificación de
-              requisitos de software.
+              IEEE Std 830-1998 – Estándar para la especificación de requisitos
+              de software.
             </li>
-            <li>Manuales de diseño de videojuegos tipo Arkanoid.</li>
             <li>
-              Documentación técnica de motores gráficos 2D utilizados para
-              desarrollo multiplataforma.
+              Unity Technologies. (s.f.). <em>Unity Manual: Unity 2D</em>. Unity
+              Documentation. Recuperado el 25 de mayo de 2025 de
+              <a
+                href="https://docs.unity3d.com/Manual/Unity2D.html"
+                target="_blank"
+                >https://docs.unity3d.com/Manual/Unity2D.html</a
+              >
+            </li>
+            <li>
+              Unity Technologies. (s.f.).
+              <em>Unity Manual: Platform-specific information</em>. Unity
+              Documentation. Recuperado el 25 de mayo de 2025 de
+              <a
+                href="https://docs.unity3d.com/Manual/PlatformSpecific.html"
+                target="_blank"
+                >https://docs.unity3d.com/Manual/PlatformSpecific.html</a
+              >
+            </li>
+            <li>
+              Unity Technologies. (s.f.). <em>Unity Scripting API</em>. Unity
+              Documentation. Recuperado el 25 de mayo de 2025 de
+              <a
+                href="https://docs.unity3d.com/ScriptReference/"
+                target="_blank"
+                >https://docs.unity3d.com/ScriptReference/</a
+              >
+            </li>
+            <li>
+              Pereira, O., & Pereira, P. (2014).
+              <em>Build Arkanoid With Unity: Project Setup</em>. Envato Tuts+.
+              Recuperado el 25 de mayo de 2025 de
+              <a
+                href="https://code.tutsplus.com/build-arkanoid-with-unity-project-setup--cms-20767t"
+                target="_blank"
+                >https://code.tutsplus.com/build-arkanoid-with-unity-project-setup--cms-20767t</a
+              >
+            </li>
+            <li>
+              Pereira, O., & Pereira, P. (2014).
+              <em>Build Arkanoid with Unity: Player and Ball Mechanics</em>.
+              Envato Tuts+. Recuperado el 25 de mayo de 2025 de
+              <a
+                href="https://code.tutsplus.com/build-arkanoid-with-unity-player-and-ball-mechanics--cms-20860t"
+                target="_blank"
+                >https://code.tutsplus.com/build-arkanoid-with-unity-player-and-ball-mechanics--cms-20860t</a
+              >
+            </li>
+            <li>
+              Pereira, O., & Pereira, P. (2014).
+              <em
+                >Build Arkanoid With Unity: Block Mechanics, Prefabs, and Level
+                Design</em
+              >. Envato Tuts+. Recuperado el 25 de mayo de 2025 de
+              <a
+                href="https://code.tutsplus.com/build-arkanoid-with-unity-block-mechanics-prefabs-and-level-design--cms-20861t"
+                target="_blank"
+                >https://code.tutsplus.com/build-arkanoid-with-unity-block-mechanics-prefabs-and-level-design--cms-20861t</a
+              >
+            </li>
+            <li>
+              Pereira, O., & Pereira, P. (2014).
+              <em
+                >Build Arkanoid With Unity: Audio, New Levels, and
+                Deployment</em
+              >. Envato Tuts+. Recuperado el 25 de mayo de 2025 de
+              <a
+                href="https://code.tutsplus.com/build-arkanoid-with-unity-audio-new-levels-and-deployment--cms-20862t"
+                target="_blank"
+                >https://code.tutsplus.com/build-arkanoid-with-unity-audio-new-levels-and-deployment--cms-20862t</a
+              >
             </li>
           </ul>
         </div>
@@ -261,8 +357,16 @@
                 <li>Nombre del jugador</li>
                 <li>País</li>
                 <li>Puntaje</li>
-                <li>Sincronización con base de datos cuando hay conexión</li>
-                <li>Opciones de filtrado</li>
+                <li>Sincronización con base de datos si hay conexión</li>
+                <li>Mensaje de error si no hay conexión</li>
+                <li>
+                  Filtrado de puntajes:
+                  <ul>
+                    <li>Top 100 mayores puntajes</li>
+                    <li>Top 100 menores puntajes</li>
+                    <li>Puntaje propio con 100 registros en contexto</li>
+                  </ul>
+                </li>
               </ul>
             </div>
             <div class="function-card">
@@ -276,30 +380,62 @@
               <h4>Pantallas de juego</h4>
               <ul>
                 <li>Pantalla de juego</li>
-                <li>Pantalla de juego en pausa con opciones</li>
+                <li>
+                  Pantalla de juego en pausa con opciones:
+                  <ul>
+                    <li>Reiniciar nivel</li>
+                    <li>Salir al menú principal</li>
+                    <li>Abandonar el juego</li>
+                  </ul>
+                </li>
                 <li>Pantalla de tutorial o modo de ayuda</li>
-                <li>Opciones de dificultad del juego</li>
+                <li>Opciones de dificultad: fácil, medio, difícil</li>
               </ul>
             </div>
-            <div class="function-card">
+            <div class="function-card span-2">
               <h4>Características de juego</h4>
               <ul>
-                <li>Control de la plataforma mediante las teclas ← y →</li>
+                <li>Control de la plataforma con ← y → (personalizable)</li>
                 <li>Rebote de la bola según leyes físicas</li>
                 <li>Eliminación de bloques al ser golpeados</li>
-                <li>Sistema de <span class="highlight-alt">power-ups</span></li>
-                <li>Sistema de puntuación</li>
-                <li>Sistema de conteo de vidas</li>
-                <li>Progresión a través de múltiples niveles</li>
+                <li>
+                  Sistema de power-ups:
+                  <ul>
+                    <li>Nombre</li>
+                    <li>Efecto</li>
+                    <li>Duración</li>
+                    <li>Condiciones de aparición</li>
+                    <li>Indicador visual de obtención</li>
+                  </ul>
+                </li>
+                <li>
+                  Sistema de puntuación:
+                  <ul>
+                    <li>Puntos por bloques destruidos</li>
+                    <li>Penalización por vidas perdidas</li>
+                  </ul>
+                </li>
+                <li>Conteo de vidas (al llegar a 0, termina el nivel)</li>
+                <li>
+                  Progresión por niveles con dificultad creciente:
+                  <ul>
+                    <li>Disposición y resistencia de bloques</li>
+                    <li>Obstáculos</li>
+                    <li>Velocidad de la bola</li>
+                    <li>Tiempo disponible</li>
+                  </ul>
+                </li>
               </ul>
             </div>
             <div class="function-card">
               <h4>Características adicionales</h4>
               <ul>
-                <li>Pantallas de victoria y derrota</li>
-                <li>Almacenamiento local del progreso</li>
-                <li>Funcionalidad en línea opcional</li>
-                <li>Efectos sonoros y banda sonora</li>
+                <li>Pantallas de victoria y derrota (por vidas o tiempo)</li>
+                <li>Transición entre niveles</li>
+                <li>Almacenamiento local de progreso y puntuaciones</li>
+                <li>Funcionalidad en línea opcional para rankings</li>
+                <li>Efectos sonoros en interacciones</li>
+                <li>Banda sonora para cada pantalla</li>
               </ul>
             </div>
           </div>
@@ -456,12 +592,11 @@
               <span class="req-id">RF2.</span>
               <p>
                 El sistema debe permitir configurar preferencias de
-                <span class="highlight">accesibilidad</span> y
-                <span class="highlight">sonido</span>, tales como modificación
-                del tamaño de la fuente, activación o desactivación de modo de
-                alto contraste, activación o desactivación de los efectos
-                visuales, subir y bajar volúmen de la música, subir y bajar
-                volúmen de los efectos de sonido.
+                <span class="highlight">accesibilidad y sonido</span>, tales
+                como modificación del tamaño de la fuente, activación o
+                desactivación de modo de alto contraste, activación o
+                desactivación de los efectos visuales, subir y bajar volúmen de
+                la música, subir y bajar volúmen de los efectos de sonido.
               </p>
             </div>
             <div class="requirement">
@@ -564,28 +699,238 @@
             </div>
             <div class="requirement">
               <span class="req-id">RF15.</span>
-              <p>
-                El sistema debe mostrar la animación de destrucción de
-                obstáculos cuando estos sean golpeados por un
-                <span class="highlight">power-up</span>, siempre que los efectos
-                visuales estén activados.
-              </p>
+              <div>
+                <p>
+                  El sistema debe contar con una variedad de
+                  <span class="highlight">power-ups</span> que otorgan
+                  habilidades o efectos temporales al jugador. La lista mínima
+                  de power-ups que el sistema debe implementar incluye:
+                </p>
+                <br />
+                <ul>
+                  <li>
+                    <strong>Disparo:</strong> Permite al jugador disparar
+                    proyectiles para destruir bloques y obstáculos.
+                  </li>
+                  <li>
+                    <strong>Disparo doble:</strong> Permite disparar dos
+                    proyectiles en paralelo para destruir bloques y obstáculos.
+                  </li>
+                  <li>
+                    <strong>Disparo triple:</strong> Permite disparar tres
+                    proyectiles en abanico para destruir bloques y obstáculos.
+                  </li>
+                  <li>
+                    <strong>+2 segundos:</strong> Agrega dos segundos al tiempo
+                    restante del nivel.
+                  </li>
+                  <li>
+                    <strong>+5 segundos:</strong> Agrega cinco segundos al
+                    tiempo restante.
+                  </li>
+                  <li>
+                    <strong>+10 segundos:</strong> Agrega diez segundos al
+                    tiempo restante.
+                  </li>
+                  <li>
+                    <strong>Bola destructora vertical:</strong> Permite destruir
+                    dos bloques consecutivos en la misma columna.
+                  </li>
+                  <li>
+                    <strong>Bola destructora horizontal:</strong> Permite
+                    destruir tres bloques consecutivos en la misma fila (el
+                    golpeado, su adyacente a la izquierda y su adyacente a la
+                    derecha).
+                  </li>
+                  <li>
+                    <strong>Multibola:</strong> Divide la bola actual en tres,
+                    aumentando las posibilidades de impacto. Solo funciona a
+                    partir del siguiente rebote de la bola en la plataforma. Las
+                    dos bolas adicionales son de color diferente y se destruyen
+                    al chocar con un obstáculo, una pared o al pasar el límite
+                    inferior de la pantalla (sin afectar las vidas del jugador).
+                  </li>
+                  <li>
+                    <strong>Bola reforzada:</strong> Permite a la bola atravesar
+                    hasta 3 bloques consecutivos en vertical sin rebotar.
+                  </li>
+                  <li>
+                    <strong>Congelación:</strong> Detiene el movimiento de los
+                    bloques móviles cuando los haya.
+                  </li>
+                  <li>
+                    <strong>Plataforma expansiva:</strong> Aumenta el tamaño de
+                    la plataforma del jugador.
+                  </li>
+                  <li>
+                    <strong>Atracción magnética:</strong> Hace que la bola se
+                    dirija más fácilmente hacia la plataforma del jugador.
+                  </li>
+                  <li>
+                    <strong>Ladrillo bomba:</strong> El siguiente bloque
+                    impactado por la bola destruye todos los bloques u
+                    obstáculos inmediatamente adyacentes, en área (efecto de
+                    explosión).
+                  </li>
+                  <li>
+                    <strong>Escudo inferior:</strong> Agrega una barrera en la
+                    parte inferior que evita perder la bola (evita perder una
+                    vida) durante el tiempo que esté activo.
+                  </li>
+                  <li>
+                    <strong>Puntos dobles:</strong> Duplica la puntuación
+                    obtenida.
+                  </li>
+                  <li>
+                    <strong>Puntos triples:</strong> Triplica la puntuación
+                    obtenida.
+                  </li>
+                </ul>
+              </div>
             </div>
             <div class="requirement">
               <span class="req-id">RF16.</span>
-              <p>
-                Se debe mostrar el <span class="highlight">puntaje</span> en
-                tiempo real durante la partida.
-              </p>
+              <div>
+                <p>
+                  El sistema debe mantener activo el efecto de cada
+                  <span class="highlight"
+                    >power-up durante un tiempo determinado</span
+                  >, según la siguiente información:
+                </p>
+                <br />
+                <ul>
+                  <li><strong>Disparo:</strong> 10 segundos.</li>
+                  <li><strong>Disparo doble:</strong> 10 segundos.</li>
+                  <li><strong>Disparo triple:</strong> 10 segundos.</li>
+                  <li><strong>+2 segundos:</strong> Efecto inmediato.</li>
+                  <li><strong>+5 segundos:</strong> Efecto inmediato.</li>
+                  <li><strong>+10 segundos:</strong> Efecto inmediato.</li>
+                  <li>
+                    <strong>Bola destructora vertical:</strong> Un impacto.
+                  </li>
+                  <li>
+                    <strong>Bola destructora horizontal:</strong> Un impacto.
+                  </li>
+                  <li>
+                    <strong>Multibola:</strong> Hasta que las bolas adicionales
+                    se destruyan.
+                  </li>
+                  <li>
+                    <strong>Bola reforzada:</strong> Un impacto (hasta 3
+                    bloques).
+                  </li>
+                  <li><strong>Congelación:</strong> 8 segundos.</li>
+                  <li><strong>Plataforma expansiva:</strong> 15 segundos.</li>
+                  <li><strong>Atracción magnética:</strong> 15 segundos.</li>
+                  <li><strong>Ladrillo bomba:</strong> Un impacto.</li>
+                  <li>
+                    <strong>Escudo inferior:</strong> 15 segundos o hasta un
+                    impacto de la bola.
+                  </li>
+                  <li><strong>Puntos dobles:</strong> 10 segundos.</li>
+                  <li><strong>Puntos triples:</strong> 10 segundos.</li>
+                </ul>
+              </div>
             </div>
             <div class="requirement">
               <span class="req-id">RF17.</span>
+              <p>
+                El sistema debe generar aleatoriamente entre
+                <span class="highlight">0 y 3 cápsulas de power-up</span> por
+                nivel, escondidas entre los bloques del escenario.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF18.</span>
+              <p>
+                Al ser destruido el bloque que oculta una cápsula de power-up,
+                esta se moverá en
+                <span class="highlight">caída libre</span> hacia el límite
+                inferior de la pantalla; al atravesar el límite se entenderá por
+                perdida.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF19.</span>
+              <p>
+                El sistema deberá
+                <span class="highlight">activar un power-up</span> al jugador
+                solo cuando una cápsula de power-up en caída libre choque con la
+                plataforma.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF20.</span>
+              <p>
+                El sistema debe mostrar la
+                <span class="highlight"
+                  >animación de destrucción de obstáculos</span
+                >
+                cuando estos sean golpeados por un power-up, siempre que los
+                efectos visuales estén activados.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF21.</span>
+              <p>
+                Se debe mostrar, en la esquina superior derecha de la pantalla
+                de partida, el
+                <span class="highlight">puntaje en tiempo real</span> durante la
+                partida.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF22.</span>
+              <p>
+                El sistema debe mostrar, en la esquina superior derecha de la
+                pantalla de partida, a la izquierda del puntaje de la partida,
+                el
+                <span class="highlight"
+                  >conteo en tiempo real de las vidas</span
+                >
+                del usuario.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF23.</span>
+              <p>
+                El sistema debe permitir al usuario
+                <span class="highlight">iniciar la partida con 5 vidas</span>.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF24.</span>
+              <p>
+                El sistema debe
+                <span class="highlight">restar una vida</span> al usuario cuando
+                la bola atraviesa el límite inferior de la pantalla de partida.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF25.</span>
+              <p>
+                El sistema debe
+                <span class="highlight">iniciar la partida con el tiempo</span>
+                correspondiente al nivel actual.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF26.</span>
+              <p>
+                El sistema debe mostrar, en la esquina superior izquierda de la
+                pantalla de partida, el
+                <span class="highlight">conteo regresivo del tiempo</span>.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF27.</span>
               <div>
                 <p>
                   El sistema debe
                   <span class="highlight">calcular el puntaje</span> del nivel
                   según la siguiente fórmula:
                 </p>
+                <br />
                 <ul>
                   <li>+10 puntos por cada bloque destruído.</li>
                   <li>+10 puntos por cada obstáculo no destruido.</li>
@@ -599,7 +944,7 @@
               </div>
             </div>
             <div class="requirement">
-              <span class="req-id">RF18.</span>
+              <span class="req-id">RF28.</span>
               <p>
                 Al destruir todos los bloques, se debe
                 <span class="highlight">avanzar al jugador</span> al siguiente
@@ -607,7 +952,7 @@
               </p>
             </div>
             <div class="requirement">
-              <span class="req-id">RF19.</span>
+              <span class="req-id">RF29.</span>
               <p>
                 El sistema debe mostrar
                 <span class="highlight">pantallas de victoria y derrota</span>
@@ -615,25 +960,25 @@
               </p>
             </div>
             <div class="requirement">
-              <span class="req-id">RF20.</span>
+              <span class="req-id">RF30.</span>
               <p>
-                Al perder toda las vidas, se entiende terminado el juego, se
-                muestra la pantalla de
+                Al perder todas las vidas (vidas = 0), se entiende terminado el
+                juego, se muestra la pantalla de
                 <span class="highlight">derrota por vidas</span> y se regresa al
                 usuario a la pantalla de selección de nivel.
               </p>
             </div>
             <div class="requirement">
-              <span class="req-id">RF21.</span>
+              <span class="req-id">RF31.</span>
               <p>
-                Al acabarse el tiempo, se entiende terminado el juego, se
-                muestra la pantalla de
+                Al acabarse el tiempo (tiempo = 0), se entiende terminado el
+                juego, se muestra la pantalla de
                 <span class="highlight">derrota por tiempo</span> y se regresa
                 al usuario a la pantalla de selección de nivel.
               </p>
             </div>
             <div class="requirement">
-              <span class="req-id">RF22.</span>
+              <span class="req-id">RF32.</span>
               <p>
                 El usuario puede consultar el
                 <span class="highlight">récord de sus puntuaciones</span> (por
@@ -641,7 +986,7 @@
               </p>
             </div>
             <div class="requirement">
-              <span class="req-id">RF23.</span>
+              <span class="req-id">RF33.</span>
               <p>
                 El usuario puede consultar y filtrar (por nombre y puntaje) el
                 <span class="highlight">ranking global</span> si hay conexión a
@@ -649,14 +994,14 @@
               </p>
             </div>
             <div class="requirement">
-              <span class="req-id">RF24.</span>
+              <span class="req-id">RF34.</span>
               <p>
                 El sistema debe <span class="highlight">notificar</span> si no
                 hay conexión al intentar acceder al ranking.
               </p>
             </div>
             <div class="requirement">
-              <span class="req-id">RF25.</span>
+              <span class="req-id">RF35.</span>
               <p>
                 El sistema debe permitir seleccionar el
                 <span class="highlight">nivel de dificultad</span> (fácil,
@@ -664,7 +1009,7 @@
               </p>
             </div>
             <div class="requirement">
-              <span class="req-id">RF26.</span>
+              <span class="req-id">RF36.</span>
               <p>
                 El sistema debe permitir
                 <span class="highlight">personalizar los controles</span> de
@@ -672,7 +1017,7 @@
               </p>
             </div>
             <div class="requirement">
-              <span class="req-id">RF27.</span>
+              <span class="req-id">RF37.</span>
               <p>
                 El sistema debe mostrar una pantalla de
                 <span class="highlight">tutorial o ayuda</span> que explique la
@@ -680,7 +1025,7 @@
               </p>
             </div>
             <div class="requirement">
-              <span class="req-id">RF28.</span>
+              <span class="req-id">RF38.</span>
               <p>
                 El sistema debe mostrar una
                 <span class="highlight">tabla de power-ups</span> que incluya
@@ -689,7 +1034,7 @@
               </p>
             </div>
             <div class="requirement">
-              <span class="req-id">RF29.</span>
+              <span class="req-id">RF39.</span>
               <p>
                 El sistema debe indicar visualmente qué
                 <span class="highlight">power-ups han sido desbloqueados</span>
@@ -697,15 +1042,92 @@
               </p>
             </div>
             <div class="requirement">
-              <span class="req-id">RF30.</span>
+              <span class="req-id">RF40.</span>
               <p>
-                El sistema debe reproducir
-                <span class="highlight">efectos de sonidos</span> para todas las
-                interacciones de la bola.
+                El sistema deberá
+                <span class="highlight">activar un power-up</span> al usuario
+                cuando la cápsula de power up toque la plataforma.
               </p>
             </div>
             <div class="requirement">
-              <span class="req-id">RF31.</span>
+              <span class="req-id">RF41.</span>
+              <div>
+                <p>
+                  El sistema debe reproducir el
+                  <span class="highlight"
+                    >efecto de sonido para el choque de la bola</span
+                  >
+                  cuando esta:
+                </p>
+                <br />
+                <ul>
+                  <li>Choca con la plataforma</li>
+                  <li>Choca con las paredes.</li>
+                  <li>Choca con un obstáculo.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF42.</span>
+              <p>
+                El sistema debe reproducir el
+                <span class="highlight"
+                  >efecto de sonido para la destrucción del bloque</span
+                >
+                cuando un bloque sea destruido.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF43.</span>
+              <p>
+                El sistema debe reproducir el
+                <span class="highlight"
+                  >efecto de sonido para la destrucción del obstáculo</span
+                >
+                cuando un obstáculo sea destruido.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF44.</span>
+              <p>
+                El sistema debe reproducir el
+                <span class="highlight"
+                  >efecto de sonido correspondiente a cada power-up</span
+                >.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF45.</span>
+              <p>
+                El sistema debe reproducir el
+                <span class="highlight"
+                  >efecto de sonido de pérdida de vida</span
+                >
+                cuando la bola atraviesa el límite inferior de la pantalla de
+                partida.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF46.</span>
+              <p>
+                El sistema debe reproducir las
+                <span class="highlight">pistas de la banda sonora</span> de
+                forma automática, seleccionando la pista correspondiente según
+                el tipo de pantalla (menú, partida, victoria, derrota). En la
+                pantalla de partida reproducirá de manera aleatoria una de las 4
+                pistas disponibles para este tipo de pantalla.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF47.</span>
+              <p>
+                El sistema
+                <span class="highlight">no deberá reproducir pista alguna</span>
+                en la pantalla de juego en pausa ni en la pantalla de tutorial.
+              </p>
+            </div>
+            <div class="requirement">
+              <span class="req-id">RF48.</span>
               <p>
                 El sistema debe mostrar
                 <span class="highlight">pantallas de transición</span> entre
@@ -713,7 +1135,7 @@
               </p>
             </div>
             <div class="requirement">
-              <span class="req-id">RF32.</span>
+              <span class="req-id">RF49.</span>
               <p>
                 El sistema debe permitir al usuario visualizar la
                 <span class="highlight">información de cada nivel</span>
@@ -721,7 +1143,7 @@
               </p>
             </div>
             <div class="requirement">
-              <span class="req-id">RF33.</span>
+              <span class="req-id">RF50.</span>
               <p>
                 El sistema debe permitir consultar desde el menú principal las
                 <span class="highlight">puntuaciones personales</span>, tanto
@@ -926,7 +1348,14 @@
             <div class="footer-meta">
               <p>Fecha: Mayo de 2025</p>
               <p>Versión: 1.0</p>
-              <p>Documento: ERS-001</p>
+              <p>
+                Documento:
+                <a
+                  href="https://docs.google.com/document/d/1aH8ZLVlkYfX8Bc2WnRHOqXCZy1ETUgkgYlG3s-opjHY/edit?usp=sharing"
+                  target="_blank"
+                  >ERS-001 (abrir)</a
+                >
+              </p>
             </div>
           </div>
 
